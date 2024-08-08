@@ -43,7 +43,7 @@ public class GeoIPParser implements Parser {
     }
 
     @Override
-    public String getType() {
+    public String getFilePrefix() {
         return "geoip";
     }
 }

@@ -48,7 +48,7 @@ public class GeoSiteParser implements Parser {
     }
 
     @Override
-    public String getType() {
+    public String getFilePrefix() {
         return "geosite";
     }
 }

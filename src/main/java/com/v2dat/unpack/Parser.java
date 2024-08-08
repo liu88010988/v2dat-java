@@ -26,7 +26,7 @@ public interface Parser {
      *
      * @return geoip geosite
      */
-    String getType();
+    String getFilePrefix();
 
     /**
      * 清理指定目录下的所有子目录和子文件
@@ -57,6 +57,6 @@ public interface Parser {
     }
 
     default String getFileName(String path, String tag) {
-        return String.format("%s/%s_%s.txt", path, getType(), tag);
+        return String.format("%s/%s_%s.txt", path, this.getFilePrefix(), tag);
     }
 }
