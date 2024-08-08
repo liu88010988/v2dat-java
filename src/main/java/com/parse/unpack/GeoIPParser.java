@@ -35,10 +35,15 @@ public class GeoIPParser implements Parser {
                 this.cleanPath(outPath);
             }
             for (String tag : tagIpMap.keySet()) {
-                try (PrintWriter writer = new PrintWriter(new FileOutputStream(outPath + "/" + tag + ".txt"))) {
+                try (PrintWriter writer = new PrintWriter(new FileOutputStream(this.getFileName(outPath, tag)))) {
                     tagIpMap.get(tag).forEach(writer::println);
                 }
             }
         }
+    }
+
+    @Override
+    public String getType() {
+        return "geoip";
     }
 }

@@ -22,6 +22,13 @@ public interface Parser {
     void parse(String dataPath, String outPath, List<String> tags, boolean clean) throws IOException;
 
     /**
+     * 解析类型
+     *
+     * @return geoip geosite
+     */
+    String getType();
+
+    /**
      * 清理指定目录下的所有子目录和子文件
      *
      * @param path 指定目录
@@ -47,5 +54,9 @@ public interface Parser {
                 return FileVisitResult.CONTINUE;
             }
         });
+    }
+
+    default String getFileName(String path, String tag) {
+        return String.format("%s/%s_%s.txt", path, getType(), tag);
     }
 }

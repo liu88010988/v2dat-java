@@ -41,10 +41,15 @@ public class GeoSiteParser implements Parser {
                 this.cleanPath(outPath);
             }
             for (String tag : tagSiteMap.keySet()) {
-                try (PrintWriter writer = new PrintWriter(new FileOutputStream(outPath + "/" + tag + ".txt"))) {
+                try (PrintWriter writer = new PrintWriter(new FileOutputStream(this.getFileName(outPath, tag)))) {
                     tagSiteMap.get(tag).forEach(writer::println);
                 }
             }
         }
+    }
+
+    @Override
+    public String getType() {
+        return "geosite";
     }
 }
