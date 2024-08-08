@@ -1,4 +1,4 @@
-## 本项目是java版本的geo数据解析
+## 本项目是java版本的geo数据解析，使用java 21
 
 ## 解析逻辑参考于[v2dat](https://github.com/urlesistiana/v2dat)
 
