@@ -9,7 +9,7 @@ import java.util.List;
  * @author by liujiawei
  * @date 2024/8/8 14:24
  */
-public interface Parser {
+public interface UnPacker {
 
     /**
      * 数据处理
@@ -19,7 +19,7 @@ public interface Parser {
      * @param tags     需要过滤的文件tag
      * @param clean    写入前是否需要清理历史文件
      */
-    void parse(String dataPath, String outPath, List<String> tags, boolean clean) throws IOException;
+    void unpack(String dataPath, String outPath, List<String> tags, boolean clean) throws IOException;
 
     /**
      * 解析类型

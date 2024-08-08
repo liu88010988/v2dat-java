@@ -13,10 +13,10 @@ import java.util.Map;
  * @author by liujiawei
  * @date 2024/8/8 14:08
  */
-public class GeoSiteParser implements Parser {
+public class GeoSiteUnPacker implements UnPacker {
 
     @Override
-    public void parse(String dataPath, String outPath, List<String> tags, boolean clean) throws IOException {
+    public void unpack(String dataPath, String outPath, List<String> tags, boolean clean) throws IOException {
         try (InputStream siteInput = new FileInputStream(dataPath)) {
             Data.GeoSiteList siteList = Data.GeoSiteList.parseFrom(siteInput);
             Map<String, List<String>> tagSiteMap = new HashMap<>();

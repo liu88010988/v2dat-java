@@ -16,10 +16,10 @@ import java.util.Map;
  * @author by liujiawei
  * @date 2024/8/8 14:08
  */
-public class GeoIPParser implements Parser {
+public class GeoIPUnPacker implements UnPacker {
 
     @Override
-    public void parse(String dataPath, String outPath, List<String> tags, boolean clean) throws IOException {
+    public void unpack(String dataPath, String outPath, List<String> tags, boolean clean) throws IOException {
         try (InputStream ipInput = new FileInputStream(dataPath)) {
             Data.GeoIPList ipList = Data.GeoIPList.parseFrom(ipInput);
             Map<String, List<String>> tagIpMap = new HashMap<>();

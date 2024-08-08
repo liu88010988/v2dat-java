@@ -1,8 +1,8 @@
 package com.v2dat;
 
-import com.v2dat.unpack.GeoIPParser;
-import com.v2dat.unpack.GeoSiteParser;
-import com.v2dat.unpack.Parser;
+import com.v2dat.unpack.GeoIPUnPacker;
+import com.v2dat.unpack.GeoSiteUnPacker;
+import com.v2dat.unpack.UnPacker;
 
 import java.util.List;
 
@@ -13,12 +13,12 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        // GeoIPParser test case
-        Parser geoIPParser = new GeoIPParser();
-        geoIPParser.parse("/Users/liujiawei/Documents/github/gfw2dnsmasq/ip/geoip.dat", "/Users/liujiawei/Desktop/geo/geoip", List.of("cn"), true);
+        // GeoIPUnPacker test case
+        UnPacker geoIPUnPacker = new GeoIPUnPacker();
+        geoIPUnPacker.unpack("/Users/liujiawei/Documents/github/gfw2dnsmasq/ip/geoip.dat", "/Users/liujiawei/Desktop/geo/geoip", List.of("cn"), true);
 
-        // GeoSiteParser test case
-        Parser geoSiteParser = new GeoSiteParser();
-        geoSiteParser.parse("/Users/liujiawei/Documents/github/gfw2dnsmasq/domain/geosite.dat", "/Users/liujiawei/Desktop/geo/geosite", List.of("gfw"), true);
+        // GeoSiteUnPacker test case
+        UnPacker geoSiteUnPacker = new GeoSiteUnPacker();
+        geoSiteUnPacker.unpack("/Users/liujiawei/Documents/github/gfw2dnsmasq/domain/geosite.dat", "/Users/liujiawei/Desktop/geo/geosite", List.of("gfw"), true);
     }
 }
