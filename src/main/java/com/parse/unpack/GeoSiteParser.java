@@ -15,6 +15,7 @@ import java.util.Map;
  */
 public class GeoSiteParser implements Parser {
 
+    @Override
     public void parse(String dataPath, String outPath, List<String> tags, boolean clean) throws IOException {
         try (InputStream siteInput = new FileInputStream(dataPath)) {
             Data.GeoSiteList siteList = Data.GeoSiteList.parseFrom(siteInput);

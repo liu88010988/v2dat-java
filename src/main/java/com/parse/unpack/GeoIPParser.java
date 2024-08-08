@@ -16,6 +16,7 @@ import java.util.Map;
  */
 public class GeoIPParser implements Parser {
 
+    @Override
     public void parse(String dataPath, String outPath, List<String> tags, boolean clean) throws IOException {
         try (InputStream ipInput = new FileInputStream(dataPath)) {
             Data.GeoIPList ipList = Data.GeoIPList.parseFrom(ipInput);
