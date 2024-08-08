@@ -56,6 +56,9 @@ public interface Parser {
         });
     }
 
+    /**
+     * 获取写入文件的绝对路径
+     */
     default String getFileName(String path, String tag) {
         return String.format("%s/%s_%s.txt", path, this.getFilePrefix(), tag);
     }
