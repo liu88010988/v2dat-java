@@ -1,9 +1,11 @@
 package com.v2dat.unpack;
 
 import com.v2dat.proto.Data;
+import com.v2dat.util.Ipv6Util;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.io.*;
+import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +29,13 @@ public class GeoIPParser implements Parser {
                     List<String> ips = tagIpMap.computeIfAbsent(tag, k -> new ArrayList<>());
                     for (Data.CIDR cidr : ip.getCidrList()) {
                         InetAddress inetAddress = InetAddress.getByAddress(cidr.getIp().toByteArray());
-                        ips.add(String.format("%s/%s", inetAddress.getHostAddress(), cidr.getPrefix()));
+                        String ipAddress;
+                        if (inetAddress instanceof Inet6Address ipv6Address) {
+                            ipAddress = Ipv6Util.simplifyIpv6(ipv6Address);
+                        } else {
+                            ipAddress = inetAddress.getHostAddress();
+                        }
+                        ips.add(String.format("%s/%s", ipAddress, cidr.getPrefix()));
                     }
                 }
             }
