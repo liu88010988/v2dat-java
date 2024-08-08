@@ -1,6 +1,6 @@
-package com.parse.unpack;
+package com.v2dat.unpack;
 
-import com.parse.proto.Data;
+import com.v2dat.proto.Data;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.io.*;

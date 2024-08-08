@@ -1,8 +1,8 @@
-package com.parse;
+package com.v2dat;
 
-import com.parse.unpack.GeoIPParser;
-import com.parse.unpack.GeoSiteParser;
-import com.parse.unpack.Parser;
+import com.v2dat.unpack.GeoIPParser;
+import com.v2dat.unpack.GeoSiteParser;
+import com.v2dat.unpack.Parser;
 
 import java.util.List;
 
