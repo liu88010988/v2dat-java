@@ -13,9 +13,11 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws Exception {
+        // GeoIPParser test case
         Parser geoIPParser = new GeoIPParser();
         geoIPParser.parse("/Users/liujiawei/Documents/github/gfw2dnsmasq/ip/geoip.dat", "/Users/liujiawei/Desktop/geo/geoip", List.of("cn"), true);
 
+        // GeoSiteParser test case
         Parser geoSiteParser = new GeoSiteParser();
         geoSiteParser.parse("/Users/liujiawei/Documents/github/gfw2dnsmasq/domain/geosite.dat", "/Users/liujiawei/Desktop/geo/geosite", List.of("gfw"), true);
     }
