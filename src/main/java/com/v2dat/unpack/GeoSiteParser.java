@@ -26,13 +26,12 @@ public class GeoSiteParser implements Parser {
                     List<String> sites = tagSiteMap.computeIfAbsent(tag, k -> new ArrayList<>());
                     for (Data.Domain domain : site.getDomainList()) {
                         Data.Domain.Type type = domain.getType();
-                        String prefix;
-                        switch (type) {
-                            case Plain -> prefix = "keyword:";
-                            case Regex -> prefix = "regexp:";
-                            case Full -> prefix = "full:";
-                            default -> prefix = "";
-                        }
+                        String prefix = switch (type) {
+                            case Plain -> "keyword:";
+                            case Regex -> "regexp:";
+                            case Full -> "full:";
+                            default -> "";
+                        };
                         sites.add(String.format("%s%s", prefix, domain.getValue()));
                     }
                 }
