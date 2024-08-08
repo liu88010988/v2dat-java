@@ -21,6 +21,11 @@ public interface Parser {
      */
     void parse(String dataPath, String outPath, List<String> tags, boolean clean) throws IOException;
 
+    /**
+     * 清理指定目录下的所有子目录和子文件
+     *
+     * @param path 指定目录
+     */
     default void cleanPath(String path) throws IOException {
         Path directory = Paths.get(path);
         Files.walkFileTree(directory, new SimpleFileVisitor<>() {
@@ -35,7 +40,8 @@ public interface Parser {
                 if (exc != null) {
                     throw exc;
                 }
-                if (!dir.equals(directory)) { // 保留顶级目录本身
+                // 保留顶级目录本身
+                if (!dir.equals(directory)) {
                     Files.delete(dir);
                 }
                 return FileVisitResult.CONTINUE;
