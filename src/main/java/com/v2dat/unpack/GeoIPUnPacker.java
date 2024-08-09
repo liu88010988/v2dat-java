@@ -2,7 +2,6 @@ package com.v2dat.unpack;
 
 import com.v2dat.proto.Data;
 import com.v2dat.util.Ipv6Util;
-import org.apache.commons.collections4.CollectionUtils;
 
 import java.io.*;
 import java.net.Inet6Address;
@@ -25,7 +24,7 @@ public class GeoIPUnPacker implements UnPacker {
             Map<String, List<String>> tagIpMap = new HashMap<>();
             for (Data.GeoIP ip : ipList.getEntryList()) {
                 String tag = ip.getCountryCode().toLowerCase();
-                if (CollectionUtils.isEmpty(tags) || tags.contains(tag)) {
+                if (tags == null || tags.isEmpty() || tags.contains(tag)) {
                     List<String> ips = tagIpMap.computeIfAbsent(tag, k -> new ArrayList<>());
                     for (Data.CIDR cidr : ip.getCidrList()) {
                         InetAddress inetAddress = InetAddress.getByAddress(cidr.getIp().toByteArray());

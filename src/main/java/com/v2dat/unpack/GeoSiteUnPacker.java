@@ -1,7 +1,6 @@
 package com.v2dat.unpack;
 
 import com.v2dat.proto.Data;
-import org.apache.commons.collections4.CollectionUtils;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ public class GeoSiteUnPacker implements UnPacker {
             Map<String, List<String>> tagSiteMap = new HashMap<>();
             for (Data.GeoSite site : siteList.getEntryList()) {
                 String tag = site.getCountryCode().toLowerCase();
-                if (CollectionUtils.isEmpty(tags) || tags.contains(tag)) {
+                if (tags == null || tags.isEmpty() || tags.contains(tag)) {
                     List<String> sites = tagSiteMap.computeIfAbsent(tag, k -> new ArrayList<>());
                     for (Data.Domain domain : site.getDomainList()) {
                         Data.Domain.Type type = domain.getType();
